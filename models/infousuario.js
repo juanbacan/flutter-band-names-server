@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const InfouserSchema = Schema({
-    uid: {
+    _id: {
         type: String,
         require: true,
     },
@@ -18,4 +18,4 @@ InfouserSchema.method('toJSON', function() {
     return object;
 });
 
-module.exports = model('Usuario', InfouserSchema);
+module.exports = model('InfoUsuario', InfouserSchema);

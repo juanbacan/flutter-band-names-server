@@ -1,16 +1,15 @@
 const { response } = require("express");
-const { defaultAuth } = require("../index");
 
 const Pregunta = require("../models/pregunta");
 const Comentario = require("../models/comentario");
 
 
-const crearPregunta = async ( req, resp = response ) => {
+const crearPregunta = async ( req, res = response ) => {
     try {
         const pregunta = new Pregunta( req.body );
         console.log(pregunta);
         await pregunta.save(); 
-        resp.json({
+        res.json({
             ok: true,
             msg: req.body
         });

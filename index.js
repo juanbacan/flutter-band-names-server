@@ -41,13 +41,14 @@ app.use( express.static( publicPath ));
 
 
 // Mis rutas
-app.use( "/api/login", require("./routes/auth"));
-app.use( "/api/usuarios", require("./routes/usuarios"));
-app.use( "/api/mensajes", require("./routes/mensajes"));
-app.use( "/api/preguntas", require("./routes/preguntas"));
-app.use( "/api/simulador", require("./routes/simulador"));
-app.use( "/api/pregunta", require("./routes/pregunta"));
-app.use( "/api/token", require("./routes/token"));
+//app.use( "/api/login", require("./routes/auth"));
+//app.use( "/api/usuarios", require("./routes/usuarios"));
+//app.use( "/api/mensajes", require("./routes/mensajes"));          // 
+app.use( "/api/preguntas", require("./routes/preguntas"));        // Realiza la consulta de un grupo de preguntas
+app.use( "/api/simulador", require("./routes/simulador"));    
+app.use( "/api/pregunta", require("./routes/pregunta"));          // Realiza la consulta de una sola pregunta        
+app.use( "/api/token", require("./routes/token"));                // Comprobar si el usuario es administrador o no
+app.use( "/api/infousuario", require("./routes/infousuario"));    // Informacion del usuario: simuladores
 
 server.listen( process.env.PORT, (err) => {
     if(err) throw new Error(err);
